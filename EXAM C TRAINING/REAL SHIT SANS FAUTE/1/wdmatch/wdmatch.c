@@ -5,8 +5,10 @@ void ft_putstr(char const *str)
 	int i = 0;
 
 	while (str[i])
-		write(1, &str[i], 1);
-		i++;
+    {
+        write (1, &str[i], 1);
+        i++;
+    }
 }
 
 int	main(int argc, char const *argv[])
@@ -17,8 +19,11 @@ int	main(int argc, char const *argv[])
 	if (argc == 3)
 	{
 		while (argv[2][j])
-			if (argv[2][j++] == argv[1][i])
+		{
+			if (argv[2][j] == argv[1][i])
 				i = i + 1;
+			j = j + 1;
+		}
 		if (!argv[1][i])
 			ft_putstr(argv[1]);
 	}
