@@ -190,7 +190,7 @@ int main (int argc, char **argv)
             }
             if ((argv[1][i] >= 'n' && argv[1][i] <= 'z') || (argv[1][i] >= 'N' && argv[1][i] <= 'Z'))
             {
-                argv[1][i] = argv[1][i] + '13';
+                argv[1][i] = argv[1][i] - '13';
             }
             ft_putchar(i);
             i++;
@@ -203,25 +203,28 @@ int main (int argc, char **argv)
 int main(int argc,  char **argv)
 {
     int i;
+    char *str;
 
+    str = argv[1];
     i = 0;
     if (argc == 2)
+   {
+    while (str[i] != '\0')
     {
-        while (argv[1][i] != '\0')
+        if ((str[i] >= 'a' && str[i] <= 'y') || (str[i] >= 'A' && str[i] <= 'Y'))
         {
-            if((argv[1][i] >= 'a' && argv[1][i] <= 'y') || (argv[1][i] >= 'A' && argv[1][i] >= 'Y'))
-            {
-                argv[1][i] = argv[1][i] + 1;
-            }
-            if(argv[1][i] == 'z' && argv[1][i] == 'Z')
-            {
-                argv[1][i] = argv[1][i] - 25;
-            }
-            i++;
+            str[i] = str[i] + 1;
         }
+        else if (str[i] == 'z' || str[i] == 'Z')
+        {
+            str[i] = str[i] - 25;
+        }
+        ft_putchar(str[i]);
+        i++;
     }
-    ft_putchar('\n');
-    return (0);
+   }
+   ft_putchar('\n');
+   return(0);
 }
 
 int main (int argc, char **argv)
